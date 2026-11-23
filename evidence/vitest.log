@@ -1,0 +1,32 @@
+npm warn Unknown user config "store-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "node-linker". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> s5-asst-022-assistant-admin@1.0.0 test
+> vitest run
+
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mD:/awkn-lab/projects/clawhunt-s5-1888/delivery-staging[39m
+
+ [32m✓[39m tests/admin.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 2945[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 original acceptance criteria[2m > [22mAC2 prevents global shutdown without reason [33m1285[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 original acceptance criteria[2m > [22mAC3 shows forced off banner and disables global switch [33m484[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 original acceptance criteria[2m > [22mAC4 timeout 500 and 40000 show validation error [33m440[2mms[22m[39m
+ [32m✓[39m tests/admin-extra.test.tsx [2m([22m[2m14 tests[22m[2m)[22m[33m 7542[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mAC1 admin sees the admin page [33m532[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mtool timeout edit requires a reason and writes nothing [33m939[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mtool timeout valid save persists and audits [33m666[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mtimeout boundaries 1000 and 30000 both pass and persist [33m577[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22minvalid timeout 500 is rejected and writes nothing [33m498[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mglobal close with reason shows double-confirm; nothing changes until confirmed [33m555[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mforce-off disables entries and takes precedence over page switches [33m390[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mroles dialog shows current visible roles [33m409[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22moverride add requires reason, persists, and duplicate is rejected [33m1003[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22moverride delete removes the entry [33m814[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22maudit list shows at most 20 rows [33m534[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mload error retry re-attempts and stays in error state [33m527[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[32m21 passed[39m[22m[90m (21)[39m
+[2m   Start at [22m 11:01:50
+[2m   Duration [22m 63.09s[2m (transform 18.74s, setup 2.37s, collect 91.17s, tests 10.49s, environment 8.00s, prepare 856ms)[22m
+

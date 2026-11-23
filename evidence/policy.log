@@ -1,0 +1,45 @@
+npm warn Unknown user config "store-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "node-linker". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> s5-asst-022-assistant-admin@1.0.0 test:policy
+> node --experimental-strip-types --test tests/policy.test.ts
+
+✔ AC1: only system admin allowed (7.4636ms)
+✔ AC2: global close requires reason (3.0863ms)
+✔ AC2: global close commits and audits reason (1.0128ms)
+✔ AC3: forced off highest priority (1.2236ms)
+✔ AC3: forced mode blocks every write (1.1744ms)
+✔ AC4: 500 and 40000 rejected (0.6097ms)
+✔ AC4: valid inclusive boundaries (1.4224ms)
+✔ AC4: floats invalid (0.8591ms)
+✔ timeout update respects boundaries (1.4961ms)
+✔ timeout update persists valid integer (1.4442ms)
+✔ non-admin cannot mutate (1.1362ms)
+✔ reason 1..200 chars and trimmed (0.6644ms)
+✔ environment off parsing (1.0387ms)
+✔ global off blocks all tools despite per-tool switches (0.9169ms)
+✔ tool disabled blocks evaluation (0.6634ms)
+✔ missing role visibility blocks evaluation (0.7152ms)
+✔ site override blocks site only (0.9265ms)
+✔ role override blocks member even when visible (0.6174ms)
+✔ tool override blocks matched tool (1.1232ms)
+✔ toggle tool changes only chosen tool (1.1454ms)
+✔ valid role selection persists (4.2101ms)
+✔ empty and unrecognized role selection rejected (1.2174ms)
+✔ missing tool cannot be mutated (0.9598ms)
+✔ add override creates new rule and audit (0.8153ms)
+✔ duplicate override forbidden (0.896ms)
+✔ remove override preserves other rules (0.8658ms)
+✔ unknown override cannot delete (0.8422ms)
+✔ audit bounded to 20 and newest first (1.236ms)
+✔ read stats without division by zero (0.7539ms)
+✔ forced off survives global disabled and enabled (0.8126ms)
+✔ mutation does not modify input reference (1.1877ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 841.254

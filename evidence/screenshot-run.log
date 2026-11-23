@@ -1,0 +1,14 @@
+# screenshot run 2026-11-23T12:50:21.732Z
+
+command: npm run screenshot
+browser: local Chrome (headless)
+viewport: 1440x960, fullPage=false
+base: http://127.0.0.1:28088
+
+normal.png    120808 bytes  captured 2026-11-23T12:50:14Z  marker=admin-page
+globalOff.png 121000 bytes  captured 2026-11-23T12:50:16Z  marker=admin-page, effective=全局关闭
+forceOff.png  117946 bytes  captured 2026-11-23T12:50:19Z  marker=force-off-banner, text=已被环境变量强制关闭，页面开关暂不生效
+loadError.png  46924 bytes  captured 2026-11-23T12:50:21Z  marker=load-error
+
+pageErrors: 0
+externalRequests: 0

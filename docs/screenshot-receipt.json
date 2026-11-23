@@ -1,0 +1,46 @@
+{
+  "capturedAt": "2026-11-23T16:05:15.772Z",
+  "browser": "chromium",
+  "results": [
+    {
+      "demo": "normal",
+      "path": "docs/screenshots/normal.png",
+      "viewport": "1440x960",
+      "fullPage": false,
+      "bytes": 120808,
+      "errors": [],
+      "externalRequests": [],
+      "markerFound": true
+    },
+    {
+      "demo": "globalOff",
+      "path": "docs/screenshots/globalOff.png",
+      "viewport": "1440x960",
+      "fullPage": false,
+      "bytes": 121000,
+      "errors": [],
+      "externalRequests": [],
+      "markerFound": true
+    },
+    {
+      "demo": "forceOff",
+      "path": "docs/screenshots/forceOff.png",
+      "viewport": "1440x960",
+      "fullPage": false,
+      "bytes": 117946,
+      "errors": [],
+      "externalRequests": [],
+      "markerFound": true
+    },
+    {
+      "demo": "loadError",
+      "path": "docs/screenshots/loadError.png",
+      "viewport": "1440x960",
+      "fullPage": false,
+      "bytes": 46924,
+      "errors": [],
+      "externalRequests": [],
+      "markerFound": true
+    }
+  ]
+}

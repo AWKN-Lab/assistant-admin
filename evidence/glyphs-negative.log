@@ -1,0 +1,21 @@
+(node:11092) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+GLYPH  U+E000 hash=19cbb5c5 ink=224 notdef=true
+GLYPH  U+E001 hash=19cbb5c5 ink=224 notdef=true
+GLYPH  U+E002 hash=19cbb5c5 ink=224 notdef=true
+GLYPH  U+E003 hash=19cbb5c5 ink=224 notdef=true
+GLYPH  U+E004 hash=19cbb5c5 ink=224 notdef=true
+GLYPH  U+E005 hash=19cbb5c5 ink=224 notdef=true
+GLYPH  U+E006 hash=19cbb5c5 ink=224 notdef=true
+GLYPH  U+E007 hash=19cbb5c5 ink=224 notdef=true
+GLYPH  U+E008 hash=19cbb5c5 ink=224 notdef=true
+GLYPH_CHECK=FAIL
+FAIL U+e000 renders as notdef
+FAIL U+e001 renders as notdef
+FAIL U+e002 renders as notdef
+FAIL U+e003 renders as notdef
+FAIL U+e004 renders as notdef
+FAIL U+e005 renders as notdef
+FAIL U+e006 renders as notdef
+FAIL U+e007 renders as notdef
+FAIL U+e008 renders as notdef

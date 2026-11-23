@@ -1,0 +1,7 @@
+# after
+CSS_SHA256=48794c72bc8060a8e9cc4a086eb7f634428017db4eef3cf0de2c7abccd472335
+SCRIPT_SHA256=59fcf84c2cf6484e58ec3f6722b70bd157d40841a77a5450bb4fe936840ebe93
+COMMAND=node scripts/check-classes.mjs .
+EXIT=0
+USED=92 DEFINED=99 UNDEFINED=0
+UNUSED_CLASSES=danger,muted,ok,rate-ok,rate-warning

@@ -1,0 +1,104 @@
+# verification 2026-11-23T11:08:34
+npm warn Unknown user config "store-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "node-linker". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn deprecated whatwg-encoding@3.1.1: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+
+added 197 packages in 2m
+npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   esbuild@0.21.5 (postinstall: node install.js)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+npm warn Unknown user config "store-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "node-linker". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> s5-asst-022-assistant-admin@1.0.0 test
+> vitest run
+
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mD:/awkn-lab/projects/clawhunt-s5-1888/delivery-staging[39m
+
+ [32m✓[39m tests/admin.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 2943[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 original acceptance criteria[2m > [22mAC2 prevents global shutdown without reason [33m1157[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 original acceptance criteria[2m > [22mAC3 shows forced off banner and disables global switch [33m472[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 original acceptance criteria[2m > [22mAC4 timeout 500 and 40000 show validation error [33m495[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 original acceptance criteria[2m > [22mrenders tool table with six registered tools [33m441[2mms[22m[39m
+ [32m✓[39m tests/admin-extra.test.tsx [2m([22m[2m14 tests[22m[2m)[22m[33m 7577[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mAC1 admin sees the admin page [33m364[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mtool timeout edit requires a reason and writes nothing [33m957[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mtool timeout valid save persists and audits [33m619[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mtimeout boundaries 1000 and 30000 both pass and persist [33m729[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22minvalid timeout 500 is rejected and writes nothing [33m803[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mglobal close with reason shows double-confirm; nothing changes until confirmed [33m637[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mforce-off disables entries and takes precedence over page switches [33m473[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mroles dialog shows current visible roles [33m488[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22moverride add requires reason, persists, and duplicate is rejected [33m966[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22moverride delete removes the entry [33m607[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22maudit list shows at most 20 rows [33m408[2mms[22m[39m
+   [33m[2m✓[22m[39m S5-ASST-022 supplementary behaviour[2m > [22mload error retry re-attempts and stays in error state [33m458[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[32m21 passed[39m[22m[90m (21)[39m
+[2m   Start at [22m 11:10:12
+[2m   Duration [22m 66.47s[2m (transform 21.58s, setup 1.96s, collect 100.73s, tests 10.52s, environment 6.29s, prepare 816ms)[22m
+
+npm warn Unknown user config "store-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "node-linker". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> s5-asst-022-assistant-admin@1.0.0 test:policy
+> node --experimental-strip-types --test tests/policy.test.ts
+
+✔ AC1: only system admin allowed (6.1985ms)
+✔ AC2: global close requires reason (3.4907ms)
+✔ AC2: global close commits and audits reason (1.2469ms)
+✔ AC3: forced off highest priority (1.7042ms)
+✔ AC3: forced mode blocks every write (0.7056ms)
+✔ AC4: 500 and 40000 rejected (0.4365ms)
+✔ AC4: valid inclusive boundaries (0.4448ms)
+✔ AC4: floats invalid (0.4636ms)
+✔ timeout update respects boundaries (1.071ms)
+✔ timeout update persists valid integer (1.7895ms)
+✔ non-admin cannot mutate (0.9411ms)
+✔ reason 1..200 chars and trimmed (0.6242ms)
+✔ environment off parsing (1.062ms)
+✔ global off blocks all tools despite per-tool switches (1.3215ms)
+✔ tool disabled blocks evaluation (0.585ms)
+✔ missing role visibility blocks evaluation (0.4776ms)
+✔ site override blocks site only (0.4858ms)
+✔ role override blocks member even when visible (0.3345ms)
+✔ tool override blocks matched tool (0.4439ms)
+✔ toggle tool changes only chosen tool (0.4418ms)
+✔ valid role selection persists (4.1394ms)
+✔ empty and unrecognized role selection rejected (0.7721ms)
+✔ missing tool cannot be mutated (0.5083ms)
+✔ add override creates new rule and audit (0.5019ms)
+✔ duplicate override forbidden (0.5377ms)
+✔ remove override preserves other rules (0.5014ms)
+✔ unknown override cannot delete (0.6333ms)
+✔ audit bounded to 20 and newest first (1.2861ms)
+✔ read stats without division by zero (0.4988ms)
+✔ forced off survives global disabled and enabled (0.2575ms)
+✔ mutation does not modify input reference (0.3952ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 787.1873
+npm warn Unknown user config "store-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "node-linker". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> s5-asst-022-assistant-admin@1.0.0 build
+> tsc -b && vite build
+
+[36mvite v5.4.21 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 3900 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                 [39m[1m[2m  0.36 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[2mdist/[22m[35massets/index-cAtxsFB1.css  [39m[1m[2m152.34 kB[22m[1m[22m[2m │ gzip:  17.83 kB[22m
+[2mdist/[22m[36massets/index-DaikekTV.js   [39m[1m[2m433.84 kB[22m[1m[22m[2m │ gzip: 136.91 kB[22m
+[32m✓ built in 1m 6s[39m
+SUMMARY ci=0 test=0 policy=0 build=0

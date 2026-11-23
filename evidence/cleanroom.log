@@ -1,0 +1,16 @@
+# cleanroom verification 2026-11-23
+
+## A: clean copy (49 tracked files, no node_modules/dist/cache)
+- npm ci: exit 0
+- npm test: exit 0, Test Files 2 passed, Tests 21 passed
+- npm run test:policy: exit 0, pass 31 / fail 0
+- npm run build: exit 0
+- npm run manifest: exit 0
+  - MANIFEST_FILES=49 MANIFEST_BYTES=655147
+  - MANIFEST_SHA256=2be50ccf6893672945b17257168e1fe8b982e4f4e7d554da265428e4571d8d62
+
+## B: second clean copy (A + MANIFEST.sha256, 50 files)
+- node scripts/verify-manifest.mjs .: exit 0
+- MANIFEST_VERIFIED=49 EXPECTED=49 PROBLEMS=0
+
+结论：清单在干净副本上计算，并在另一份干净副本上校验通过；文件名全 ASCII。

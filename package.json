@@ -1,0 +1,39 @@
+{
+  "name": "s5-asst-022-assistant-admin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 28088 --strictPort",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 28088 --strictPort",
+    "test": "vitest run",
+    "test:policy": "node --experimental-strip-types --test tests/policy.test.ts",
+    "screenshot": "node scripts/capture.mjs",
+    "check:no-external": "node scripts/no-external.mjs",
+    "check:classes": "node scripts/check-classes.mjs",
+    "check:secrets": "node scripts/scan-secrets.mjs",
+    "check:glyphs": "node scripts/check-glyphs.mjs",
+    "check:glyphs:negative": "node scripts/check-glyphs.mjs --simulate-notdef",
+    "manifest": "node scripts/manifest.mjs",
+    "verify:manifest": "node scripts/verify-manifest.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tdesign-react": "^1.9.6"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^25.0.1",
+    "playwright-core": "^1.49.0",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8",
+    "@types/node": "^22.10.0"
+  }
+}

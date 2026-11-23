@@ -1,0 +1,12 @@
+(node:59068) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+GLYPH 助 U+52A9 hash=7abcc383 ink=540 notdef=false
+GLYPH 手 U+624B hash=82fbed44 ink=459 notdef=false
+GLYPH 管 U+7BA1 hash=6a0ffcb0 ink=595 notdef=false
+GLYPH 理 U+7406 hash=8408d346 ink=591 notdef=false
+GLYPH 工 U+5DE5 hash=4132926f ink=318 notdef=false
+GLYPH 具 U+5177 hash=974377ae ink=585 notdef=false
+GLYPH 关 U+5173 hash=f751b2de ink=439 notdef=false
+GLYPH 停 U+505C hash=edccfe0e ink=509 notdef=false
+GLYPH 开 U+5F00 hash=ede1294f ink=406 notdef=false
+GLYPH_CHECK=PASS

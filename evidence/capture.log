@@ -1,0 +1,9 @@
+npm warn Unknown user config "store-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "node-linker". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> s5-asst-022-assistant-admin@1.0.0 screenshot
+> node scripts/capture.mjs
+
+(node:58916) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS 4 real Chromium screenshots; external requests 0; page errors 0

@@ -1,0 +1,5 @@
+.layout -> L25: .layout {
+.status-pill -> L512: .status-pill {
+.tools-table -> L699: .tools-table {
+.force-banner -> L401: .force-banner {
+.scope-table -> L907: .scope-table {

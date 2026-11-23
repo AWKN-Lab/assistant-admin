@@ -1,0 +1,7 @@
+npm warn Unknown user config "store-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "node-linker". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> s5-asst-022-assistant-admin@1.0.0 check:no-external
+> node scripts/no-external.mjs
+
+PASS no external JS/CSS loading URLs in built HTML and CSS

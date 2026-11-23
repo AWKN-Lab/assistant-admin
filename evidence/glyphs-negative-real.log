@@ -1,0 +1,90 @@
+# 字形负控（真实缺 CJK 字体环境）
+
+日期：2026-11-23
+目的：证明 `scripts/check-glyphs.mjs` 在**真实缺少中文字形**的环境里会失败（exit=1 + `CJK_GLYPH_MISSING`），
+而不是依赖 `--simulate-notdef` 自造的缺字条件。回应 #1851「负控环境被清掉后自然 PASS」的假阴性风险。
+
+## 一、环境怎么造出来的
+
+不在 Windows 主机上删字体，也不改宿主任何系统配置。负控跑在 **WSL2 Ubuntu 24.04.4 LTS** 里，
+该镜像本身只带 DejaVu / Ubuntu 字体，**从未安装任何中文字体**，因此是天然的真实缺字环境。
+
+探测证据（`fc-list` 工作正常，但中文计数为 0）：
+
+```
+OS=Ubuntu 24.04.4 LTS
+TOTAL_FONTS=89
+ZH_ALL=0
+MATCH_ZH=DejaVu Sans
+FONT_FILES=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf ... /usr/share/fonts/truetype/ubuntu/Ubuntu[wdth,wght].ttf
+```
+
+解读：
+- `fc-list | wc -l` = 89 → fontconfig 本身正常，不是「fontconfig 坏了导致误判」。
+- `fc-list :lang=zh | wc -l` = 0 → 一个中文字体都没有。
+- `fc-match 'sans-serif:lang=zh'` 回落到 `DejaVu Sans`（无 CJK 字形）→ 页面汉字只能画成 notdef 方块。
+
+运行环境：
+- Chromium 131：`$HOME/.cache/ms-playwright/chromium_headless_shell-1148/chrome-linux/headless_shell`
+- Node v18.19.1（WSL 内）
+- 构建产物先复制到 WSL 本地 ext4（`~/glyphcheck/dist`），避免 drvfs 读取阻塞
+- 本地静态服务：`node _wsl_serve.mjs ~/glyphcheck/dist 28088`（仅 127.0.0.1）
+
+执行前自检（证明页面与资源真的加载成功，排除「服务器没起来」造成的假失败）：
+
+```
+HTTP_INDEX=200
+JS_ASSET=assets/index-DaikekTV.js
+HTTP_JS=200 438493
+```
+
+## 二、实际命令
+
+```
+cd ~/glyphcheck
+CHROME_PATH=$HOME/.cache/ms-playwright/chromium_headless_shell-1148/chrome-linux/headless_shell \
+SCREENSHOT_BASE_URL=http://127.0.0.1:28088 \
+node check-glyphs.mjs
+```
+
+## 三、原始输出（逐字）
+
+```
+ZH_FONT_COUNT=0
+GLYPH 助 U+52A9 hash=49718411 ink=204 notdef=true
+GLYPH 手 U+624B hash=49718411 ink=204 notdef=true
+GLYPH 管 U+7BA1 hash=49718411 ink=204 notdef=true
+GLYPH 理 U+7406 hash=49718411 ink=204 notdef=true
+GLYPH 工 U+5DE5 hash=49718411 ink=204 notdef=true
+GLYPH 具 U+5177 hash=49718411 ink=204 notdef=true
+GLYPH 关 U+5173 hash=49718411 ink=204 notdef=true
+GLYPH 停 U+505C hash=49718411 ink=204 notdef=true
+GLYPH 开 U+5F00 hash=49718411 ink=204 notdef=true
+CJK_GLYPH_MISSING=9
+GLYPH_CHECK=FAIL
+FAIL U+52a9 renders as notdef
+FAIL U+624b renders as notdef
+FAIL U+7ba1 renders as notdef
+FAIL U+7406 renders as notdef
+FAIL U+5de5 renders as notdef
+FAIL U+5177 renders as notdef
+FAIL U+5173 renders as notdef
+FAIL U+505c renders as notdef
+FAIL U+5f00 renders as notdef
+GLYPH_REAL_EXIT=1
+```
+
+关键点：9 个汉字的渲染哈希完全相同（`49718411`，墨迹 204），即同一个豆腐块；
+这与 Windows 正常环境下的 PASS（见 `evidence/glyphs.log`）形成对照。
+
+## 四、跑完怎么还原
+
+- **没有安装、也没有删除任何字体**；负控前后 `fc-list :lang=zh` 都是 0，宿主 Windows 字体完全未触碰。
+- 静态服务已停止：`fuser -k 28088/tcp`；`SERVER_STOPPED=1`，`ZH_FONTS_AFTER=0`。
+- WSL 内临时目录 `~/glyphcheck`（dist 副本 + 脚本副本）可直接删除，不在交付仓内，也不影响宿主。
+- 如本地曾残留 28088 监听，本次清理后已无进程占用。
+
+## 五、结论
+
+- 真环境负控：`ZH_FONTS=0` → `CJK_GLYPH_MISSING=9` → `GLYPH_REAL_EXIT=1`。
+- `--simulate-notdef`（`evidence/glyphs-negative.log`）仅作辅助自测保留，不再作为负控主证据。

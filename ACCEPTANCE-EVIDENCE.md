@@ -32,3 +32,29 @@
 | 清单 | `npm run manifest` / `npm run verify:manifest` | 干净副本计算并在第二份干净副本校验通过 |
 
 日志：`evidence/class-diff-before.log`、`class-diff-after.log`、`class-gate.log`、`secrets.log`、`glyphs.log`、`glyphs-negative-real.log`、`glyphs-negative.log`、`verification.log`。
+
+## 机器可读证据（DOM 文本转储）
+
+平台预检**读不了 PNG** ⇒ 这里给出「截图里能看见的东西」的**可复制文本**：
+`evidence/dom.log`（生成脚本 `scripts/dump-dom.mjs`，`node scripts/dump-dom.mjs` 可复跑）。
+
+| 状态 | URL 参数 | 最终 pathname | 页面错误 | 外部请求 |
+|---|---|---|---|---|
+| normal | `role=system_admin&demo=normal` | `/workbench/admin/assistant?role=system_admin&demo=normal` | 0 | 0 |
+| globalOff | `role=system_admin&demo=globalOff` | `/workbench/admin/assistant?role=system_admin&demo=globalOff` | 0 | 0 |
+| forceOff | `role=system_admin&demo=forceOff` | `/workbench/admin/assistant?role=system_admin&demo=forceOff` | 0 | 0 |
+| loadError | `role=system_admin&demo=loadError` | `/workbench/admin/assistant?role=system_admin&demo=loadError` | 0 | 0 |
+| forbidden-operator | `role=operator&demo=normal` | `/403?role=operator&demo=normal` | 0 | 0 |
+| forbidden-no-role | `demo=normal` | `/403?demo=normal` | 0 | 0 |
+
+**强制关闭横幅（AC3）的 DOM 实际渲染文本**：
+```
+已被环境变量强制关闭，页面开关暂不生效
+```
+
+**无权限页（AC1）的 DOM 实际渲染文本**：
+```
+403
+```
+
+完整逐行转储（含正常态工具注册表 6 行、全局关闭态、加载失败态）见 `evidence/dom.log`。

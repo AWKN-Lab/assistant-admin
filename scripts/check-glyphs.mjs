@@ -1,4 +1,7 @@
 import { execSync, spawn } from 'node:child_process';
+import { existsSync, readdirSync, statSync } from 'node:fs';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
 import { chromium } from 'playwright-core';
 
 const simulate = process.argv.includes('--simulate-notdef');
@@ -6,9 +9,34 @@ const base = process.env.SCREENSHOT_BASE_URL || 'http://127.0.0.1:28088';
 const CJK = ['助', '手', '管', '理', '工', '具', '关', '停', '开'];
 const NOTDEF = Array.from({ length: 9 }, (_, i) => String.fromCodePoint(0xe000 + i));
 const targets = simulate ? NOTDEF : CJK;
-const chromePath = process.env.CHROME_PATH || (process.platform === 'win32'
-  ? 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
-  : '/usr/bin/chromium');
+// 浏览器解析：显式环境变量优先，其次 playwright 装出来的构建（**版本号会变 ⇒ 通配找最新**），
+// 最后才回落系统 chromium。CI 里 `npx playwright install chromium` 装的就是第二种。
+function resolveChromePath() {
+  const explicit = process.env.CHROME_PATH || process.env.CHROMIUM_PATH;
+  if (explicit) return explicit;
+  if (process.platform === 'win32') return 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+  const roots = [join(homedir(), '.cache', 'ms-playwright'), '/root/.cache/ms-playwright'];
+  const found = [];
+  for (const root of roots) {
+    if (!existsSync(root)) continue;
+    for (const dir of readdirSync(root)) {
+      if (!dir.startsWith('chromium')) continue;
+      for (const rel of ['chrome-linux/chrome', 'chrome-linux/headless_shell']) {
+        const p = join(root, dir, rel);
+        if (existsSync(p)) found.push({ p, mtime: statSync(p).mtimeMs });
+      }
+    }
+  }
+  found.sort((a, b) => b.mtime - a.mtime);
+  if (found.length) return found[0].p;
+  return existsSync('/usr/bin/chromium') ? '/usr/bin/chromium' : '';
+}
+const chromePath = resolveChromePath();
+console.log('CHROME_PATH=' + (chromePath || '(not found)'));
+if (!chromePath) {
+  console.log('GLYPH_CHECK=ERROR no chromium found; set CHROME_PATH or run: npx playwright install chromium');
+  process.exit(1);
+}
 
 let server;
 if (!process.env.SCREENSHOT_BASE_URL) {

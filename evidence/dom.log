@@ -8,7 +8,7 @@
 URL: http://127.0.0.1:28089/workbench/admin/assistant?role=system_admin&demo=normal
 最终 pathname: /workbench/admin/assistant?role=system_admin&demo=normal
 页面错误数: 0   外部请求数: 0
-关键 data-testid: admin-page, effective-state, configuration-panel, tools-tab, tool-search, tool-row-t1, toggle-t1, tool-row-t2, toggle-t2, tool-row-t3, toggle-t3, tool-row-t4, toggle-t4, tool-row-t5
+关键 data-testid: admin-page, effective-state, configuration-panel, tools-tab, tool-search, tool-row-t1, toggle-t1, tool-row-t2, toggle-t2, tool-row-t3, toggle-t3, tool-row-t4, toggle-t4, tool-row-t5, toggle-t5, tool-row-t6, toggle-t6, audit-list
 --- DOM 实际渲染文本（逐行）---
 M
 ·
@@ -145,13 +145,12 @@ site.room.availability	场地运营	v1.6.0
 MEMBERSPACE / ASSISTANT ADMIN
 身份验证由 S2-IAM 接口在服务端重新校验
 
-
 ========================================================================
 ## globalOff
 URL: http://127.0.0.1:28089/workbench/admin/assistant?role=system_admin&demo=globalOff
 最终 pathname: /workbench/admin/assistant?role=system_admin&demo=globalOff
 页面错误数: 0   外部请求数: 0
-关键 data-testid: admin-page, effective-state, configuration-panel, tools-tab, tool-search, tool-row-t1, toggle-t1, tool-row-t2, toggle-t2, tool-row-t3, toggle-t3, tool-row-t4, toggle-t4, tool-row-t5
+关键 data-testid: admin-page, effective-state, configuration-panel, tools-tab, tool-search, tool-row-t1, toggle-t1, tool-row-t2, toggle-t2, tool-row-t3, toggle-t3, tool-row-t4, toggle-t4, tool-row-t5, toggle-t5, tool-row-t6, toggle-t6, audit-list
 --- DOM 实际渲染文本（逐行）---
 M
 ·
@@ -288,13 +287,12 @@ site.room.availability	场地运营	v1.6.0
 MEMBERSPACE / ASSISTANT ADMIN
 身份验证由 S2-IAM 接口在服务端重新校验
 
-
 ========================================================================
 ## forceOff
 URL: http://127.0.0.1:28089/workbench/admin/assistant?role=system_admin&demo=forceOff
 最终 pathname: /workbench/admin/assistant?role=system_admin&demo=forceOff
 页面错误数: 0   外部请求数: 0
-关键 data-testid: admin-page, force-off-banner, effective-state, configuration-panel, tools-tab, tool-search, tool-row-t1, toggle-t1, tool-row-t2, toggle-t2, tool-row-t3, toggle-t3, tool-row-t4, toggle-t4
+关键 data-testid: admin-page, force-off-banner, effective-state, configuration-panel, tools-tab, tool-search, tool-row-t1, toggle-t1, tool-row-t2, toggle-t2, tool-row-t3, toggle-t3, tool-row-t4, toggle-t4, tool-row-t5, toggle-t5, tool-row-t6, toggle-t6, audit-list
 --- DOM 实际渲染文本（逐行）---
 M
 ·
@@ -434,7 +432,6 @@ site.room.availability	场地运营	v1.6.0
 MEMBERSPACE / ASSISTANT ADMIN
 身份验证由 S2-IAM 接口在服务端重新校验
 
-
 ========================================================================
 ## loadError
 URL: http://127.0.0.1:28089/workbench/admin/assistant?role=system_admin&demo=loadError
@@ -485,7 +482,6 @@ MOCK 演示
 助手配置接口发生错误，请稍后重新获取。
 重新加载
 
-
 ========================================================================
 ## forbidden-operator
 URL: http://127.0.0.1:28089/workbench/admin/assistant?role=operator&demo=normal
@@ -531,7 +527,6 @@ AI 助手管理
 只有系统管理员可以访问助手管理页面。请联系管理员分配权限。
 返回工作台
 
-
 ========================================================================
 ## forbidden-no-role
 URL: http://127.0.0.1:28089/workbench/admin/assistant?demo=normal
@@ -576,5 +571,4 @@ AI 助手管理
 无权限访问
 只有系统管理员可以访问助手管理页面。请联系管理员分配权限。
 返回工作台
-
 

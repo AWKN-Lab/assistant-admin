@@ -25,7 +25,7 @@
 | 门禁 | 命令 | 实测 |
 |---|---|---|
 | 类名差集 | `npm run check:classes` | 修前 `USED=92 DEFINED=83 UNDEFINED=74`（exit 1）；修后 `USED=92 DEFINED=99 UNDEFINED=0`（exit 0） |
-| 密钥扫描 | `npm run check:secrets` | `FILES_SCANNED=53 SECRET_HITS=0 NON_ASCII_NAMES=0` |
+| 密钥扫描 | `npm run check:secrets` | `FILES_SCANNED=58 SECRET_HITS=0 NON_ASCII_NAMES=0` |
 | 字形自检 | `npm run check:glyphs` | `GLYPH_CHECK=PASS`，9 个汉字均不等于 notdef 参照 |
 | 字形负控（真环境） | WSL2 Ubuntu 24.04 无中文字体：`node scripts/check-glyphs.mjs` | 必须 exit 1：`fc-list :lang=zh`=0 下 `CJK_GLYPH_MISSING=9`、`GLYPH_CHECK=FAIL`；日志含环境构造与还原 |
 | 字形负控（辅助） | `npm run check:glyphs:negative` | 必须 exit 1：9 个目标被替换为 U+E000–E008 后全部命中 notdef |

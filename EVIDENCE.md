@@ -46,7 +46,7 @@
 | `npm run build` | `tsc -b && vite build` 成功 | 0 |
 | `npm run screenshot` | PASS 4 real Chromium screenshots；外部请求 0；页面错误 0 | 0 |
 | `npm run check:classes` | `USED=92 DEFINED=99 UNDEFINED=0` | 0 |
-| `npm run check:secrets` | `FILES_SCANNED=53 SECRET_HITS=0 NON_ASCII_NAMES=0` | 0 |
+| `npm run check:secrets` | `FILES_SCANNED=58 SECRET_HITS=0 NON_ASCII_NAMES=0` | 0 |
 | `npm run check:glyphs` | `GLYPH_CHECK=PASS` | 0 |
 | 真环境负控（WSL Ubuntu，无中文字体） | `ZH_FONT_COUNT=0`；`CJK_GLYPH_MISSING=9`；`GLYPH_CHECK=FAIL` | 1（负控预期） |
 | `npm run check:glyphs:negative`（辅助） | 9 个目标全部 `renders as notdef` | 1（负控预期） |

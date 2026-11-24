@@ -26,5 +26,14 @@ jobs:
       - name: Install chromium (glyph self-check)
         run: npx --yes playwright install --with-deps chromium
       - run: npm run check:glyphs
-      - run: npm run manifest
-      - run: npm run verify:manifest
+      # 清单守卫必须验**提交进仓的那份**，而不是"先重算再验"（自我一致 ⇒ 错的清单也不会红）
+      - name: Verify committed MANIFEST (fail closed)
+        run: npm run verify:manifest
+      - name: MANIFEST must be up to date with the working tree
+        run: |
+          npm run manifest
+          if ! git diff --exit-code -- MANIFEST.sha256; then
+            echo "::error::MANIFEST.sha256 与工作区不一致（提交前请重算并提交）"
+            git diff -- MANIFEST.sha256 | head -40
+            exit 1
+          fi

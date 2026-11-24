@@ -1,3 +1,5 @@
+> 📌 **验收基线见 [`ACCEPTANCE-BASELINE.md`](ACCEPTANCE-BASELINE.md)** —— 本仓 HEAD 会继续往前走，但"被验收的是哪一版"在那里一眼可见。
+
 # S5-ASST-022 · 会员空间平台助手管理页
 
 ClawHunt 订单 **#1888**，工作台管理路由 **`/workbench/admin/assistant`**。本代码仓是单订单独立交付，不包含其他工单业务代码。数据、角色、站点名称全部虚构；未使用实际客户身份、密钥、企业资料。**不含境外数据上报 SDK**。
